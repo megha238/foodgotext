@@ -173,53 +173,49 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
           //  Image(image: AssetImage('assets/images/iconAdd.png',),fit: BoxFit.cover,width: 20,height: 20,)
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 90,
-
-        child: BottomAppBar(
-
-          color: Color(0xffEF2A39),
-          // padding: EdgeInsets.all(20),
-          height: 80,
-          shape:  CircularNotchedRectangle(),
-          notchMargin: 10.0,
-          clipBehavior: Clip.antiAlias,
-          child: BottomNavigationBar(
-
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            selectedItemColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-            backgroundColor:  Color(0xffEF2A39),
-            elevation: 0,
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-                pageController.jumpToPage(index);
-              });
-            },
-            items: const[
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/home.png')),
-                label: '.',
-                // activeIcon: Text('.')
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/user.png')),
-                label: '.',
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/comment.png')),
-                label: '.',
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/heart.png')),
-                label: '.',
-              ),
-            ],
-          ),
+      bottomNavigationBar: BottomAppBar(
+      
+        color: Color(0xffEF2A39),
+        // padding: EdgeInsets.all(20),
+        shape:  CircularNotchedRectangle(),
+        notchMargin: 10.0,
+        clipBehavior: Clip.antiAlias,
+        child: 
+        BottomNavigationBar(
+      
+          showUnselectedLabels: true,
+          showSelectedLabels: true,
+          selectedItemColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          backgroundColor:  Color(0xffEF2A39),
+          elevation: 0,
+          currentIndex: _selectedIndex,
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+              pageController.jumpToPage(index);
+            });
+          },
+          items: const[
+            BottomNavigationBarItem(
+              icon: Image(image: AssetImage('assets/images/home.png')),
+              label: '.',
+              // activeIcon: Text('.')
+            ),
+            BottomNavigationBarItem(
+              icon: Image(image: AssetImage('assets/images/user.png')),
+              label: '.',
+            ),
+            BottomNavigationBarItem(
+              icon: Image(image: AssetImage('assets/images/comment.png')),
+              label: '.',
+            ),
+            BottomNavigationBarItem(
+              icon: Image(image: AssetImage('assets/images/heart.png')),
+              label: '.',
+            ),
+          ],
         ),
       ),
       body: PageView(

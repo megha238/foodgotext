@@ -367,7 +367,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Container(
                           width: 60,
                           height: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               color: Colors.blue,
                               image: DecorationImage(image: AssetImage('assets/images/profilePhoto.png',),fit: BoxFit.cover),
                               shape: BoxShape.circle
@@ -379,7 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                    // Text('Order your favourite food!',style: TextStyle(fontWeight: FontWeight.w400,color: Color(0xFF3C2F2F),fontFamily: 'Poppins',fontSize: 18),),
                   ],
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30,),
                 Row(
                   children: [
                     Expanded(
@@ -390,7 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5), //color of shadow
                               blurRadius: 7, // blur radius
-                              offset: Offset(0, 1),
+                              offset: const Offset(0, 1),
                             ),],
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(15),
@@ -403,7 +403,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             border: InputBorder.none,
                             fillColor: AppColor.white,
                             hintText: 'Search',
-                            prefixIcon: Icon(Icons.search),
+                            prefixIcon: const Icon(Icons.search),
                           ),
                           onChanged: (value) {
                             filterProducts(value);
@@ -413,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(left: 15),
+                      margin: const EdgeInsets.only(left: 15),
                       height: 47,
                       width: 47,
                       child: IconButton.filledTonal(
@@ -425,14 +425,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           backgroundColor: MaterialStatePropertyAll(AppColor.red),
                         ),
                       ),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
         
                           borderRadius: BorderRadius.all(Radius.circular(10))
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: 30,),
+                const SizedBox(height: 30,),
         
                 Padding(
                   padding: const EdgeInsets.only(left: 5,bottom: 30,top: 10),
@@ -446,11 +446,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       4,
                           (int index) {
                         return ChoiceChip(
-                          labelPadding: EdgeInsets.symmetric(horizontal:   10,vertical: 4),
+                          labelPadding: const EdgeInsets.symmetric(horizontal:   10,vertical: 4),
                           //  pressElevation: 12,
-                          side: BorderSide(color: Colors.transparent,width: 0),
+                          side: const BorderSide(color: Colors.transparent,width: 0),
                           elevation: selectedIndex == index ? 10 : 0,
-                          labelStyle: selectedIndex == index ? TextStyle( color: Colors.white): TextStyle( color: AppColor.textGrey),
+                          labelStyle: selectedIndex == index ? const TextStyle( color: Colors.white): TextStyle( color: AppColor.textGrey),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide.none),
                           selectedShadowColor: Colors.grey ,
                           showCheckmark: false,
@@ -476,8 +476,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Expanded(
                  child: GridView.builder(
                   shrinkWrap: true,
-                    padding: EdgeInsets.only(bottom: 10),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 8.0,
                       mainAxisSpacing: 8.0,
@@ -522,12 +522,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                    // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(price: filteredProductNames[index].productprice,),));
                                   },
                                 ),
-                                Spacer(flex: 1,),
+                                const Spacer(flex: 1,),
                                 Row(
         
                                   children: [
-                                    Image(image: AssetImage('assets/images/star.png')),
-                                    SizedBox(width: 5,),
+                                    const Image(image: AssetImage('assets/images/star.png')),
+                                    const SizedBox(width: 5,),
                                     Expanded (
                                       child:
                                       AllWidgets.customText(data: "${ filteredProductNames[index].productRating}", fontWeight: FontWeight.bold ,fontSize: 15),
@@ -549,12 +549,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                           print('hear $heartIs');
                                         });
                                       },
-                                      icon: !(blankList.contains(filteredProductNames[index].productName.toString())) ? SvgPicture.asset('assets/images/heart.svg') : Icon(CupertinoIcons.heart_fill,color: Colors.red),
+                                      icon: !(blankList.contains(filteredProductNames[index].productName.toString())) ? SvgPicture.asset('assets/images/heart.svg') : const Icon(CupertinoIcons.heart_fill,color: Colors.red),
                                       //child:
                                     ),
                                   ],
                                 ),
-                             Spacer(flex: 1,),
+                             const Spacer(flex: 1,),
                               ],
                             ),
                           ),
