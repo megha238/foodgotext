@@ -14,6 +14,8 @@ abstract class AllWidgets {
     return Text(
       data,
       textAlign: textAlign,
+      maxLines: 1,
+      overflow: TextOverflow.fade,
       style: TextStyle(
         fontSize: fontSize ?? 10,
         fontWeight: fontWeight ?? FontWeight.normal,

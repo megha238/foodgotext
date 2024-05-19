@@ -345,225 +345,237 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      body:  Padding(
-        padding: const EdgeInsets.only(right: 15,left: 15,),
-        child: BlocConsumer(
-          bloc: homeBloc,
-          builder: (BuildContext context, state) {
-            print('STate: $state');
-          return Column(
-            crossAxisAlignment:  CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      AllWidgets.customText(data: AppString.projectName , fontWeight: FontWeight.w400,fontFamily: 'Lobster',fontSize: 45 ),
-                     // Text('Foodgo',style: TextStyle(fontWeight: FontWeight.w400,color: Color(0xFF3C2F2F),fontFamily: 'Lobster',fontSize: 45),),
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            image: DecorationImage(image: AssetImage('assets/images/profilePhoto.png',),fit: BoxFit.cover),
-                            shape: BoxShape.circle
-                        ),
-                      )
-                    ],
-                  ),
-                  AllWidgets.customText(data: AppString.favouriteOrder ,fontWeight: FontWeight.w400,fontFamily: 'Poppins',fontSize: 18)
-                 // Text('Order your favourite food!',style: TextStyle(fontWeight: FontWeight.w400,color: Color(0xFF3C2F2F),fontFamily: 'Poppins',fontSize: 18),),
-                ],
-              ),
-              SizedBox(height: 30,),
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      clipBehavior: Clip.antiAlias,
-                      decoration: BoxDecoration(
-                        boxShadow:  [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.5), //color of shadow
-                            blurRadius: 7, // blur radius
-                            offset: Offset(0, 1),
-                          ),],
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.red,
-                      ),
-                      child: TextField(
-                        controller: _searchController,
-                        decoration: InputDecoration(
-                          filled: true,
-                          border: InputBorder.none,
-                          fillColor: AppColor.white,
-                          hintText: 'Search',
-                          prefixIcon: Icon(Icons.search),
-                        ),
-                        onChanged: (value) {
-                          filterProducts(value);
-                        },
-                        // _onSearch,
-                      ),
+      body:  
+      SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(right: 15,left: 15,),
+          child: BlocConsumer(
+            bloc: homeBloc,
+            builder: (BuildContext context, state) {
+              print('STate: $state');
+            return Column(
+              crossAxisAlignment:  CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        AllWidgets.customText(data: AppString.projectName , fontWeight: FontWeight.w400,fontFamily: 'Lobster',fontSize: 45 ),
+                       // Text('Foodgo',style: TextStyle(fontWeight: FontWeight.w400,color: Color(0xFF3C2F2F),fontFamily: 'Lobster',fontSize: 45),),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                              color: Colors.blue,
+                              image: DecorationImage(image: AssetImage('assets/images/profilePhoto.png',),fit: BoxFit.cover),
+                              shape: BoxShape.circle
+                          ),
+                        )
+                      ],
                     ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 15),
-                    height: 47,
-                    width: 47,
-                    child: IconButton.filledTonal(
-                      onPressed: () {
-                      },
-                      icon: const Icon(Icons.remove,color: Colors.white,),
-                      style: ButtonStyle(
-                        shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
-                        backgroundColor: MaterialStatePropertyAll(AppColor.red),
-                      ),
-                    ),
-                    decoration: BoxDecoration(
-
-                        borderRadius: BorderRadius.all(Radius.circular(10))
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: 30,),
-              Padding(
-                padding: const EdgeInsets.only(left: 5,bottom: 30,top: 10),
-                child: Wrap(
-
-                  direction: Axis.horizontal,
-                  alignment: WrapAlignment.start,
-                  spacing: 15,
-
-                  children: List<Widget>.generate(
-                    4,
-                        (int index) {
-                      return ChoiceChip(
-                        labelPadding: EdgeInsets.symmetric(horizontal:   10,vertical: 4),
-                        //  pressElevation: 12,
-                        side: BorderSide(color: Colors.transparent,width: 0),
-                        elevation: selectedIndex == index ? 10 : 0,
-                        labelStyle: selectedIndex == index ? TextStyle( color: Colors.white): TextStyle( color: AppColor.textGrey),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide.none),
-                        selectedShadowColor: Colors.grey ,
-                        showCheckmark: false,
-                        shadowColor: AppColor.greyShadow,
-                        selectedColor: AppColor.red,
-                        backgroundColor: AppColor.lightGrey,
-                        label: Text('${choiceItemsList[index]}'),
-                        selected: selectedIndex == index,
-                        onSelected: (bool selected) {
-                          setState(() {
-                            onChipSelected(index);
-                            // forList = true;
-                            // value = (selected ? index : null)!;
-                            // print("index value is  $value");
-                          });
-                        },
-                      );
-                    },
-                  ).toList(),
+                    AllWidgets.customText(data: AppString.favouriteOrder ,fontWeight: FontWeight.w400,fontFamily: 'Poppins',fontSize: 18)
+                   // Text('Order your favourite food!',style: TextStyle(fontWeight: FontWeight.w400,color: Color(0xFF3C2F2F),fontFamily: 'Poppins',fontSize: 18),),
+                  ],
                 ),
-              ),
-              Expanded(
-                child: GridView.builder(
-                  padding: EdgeInsets.only(bottom: 10),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 8.0,
+                SizedBox(height: 30,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          boxShadow:  [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5), //color of shadow
+                              blurRadius: 7, // blur radius
+                              offset: Offset(0, 1),
+                            ),],
+                          shape: BoxShape.rectangle,
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.red,
+                        ),
+                        child: TextField(
+                          controller: _searchController,
+                          decoration: InputDecoration(
+                            filled: true,
+                            border: InputBorder.none,
+                            fillColor: AppColor.white,
+                            hintText: 'Search',
+                            prefixIcon: Icon(Icons.search),
+                          ),
+                          onChanged: (value) {
+                            filterProducts(value);
+                          },
+                          // _onSearch,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 15),
+                      height: 47,
+                      width: 47,
+                      child: IconButton.filledTonal(
+                        onPressed: () {
+                        },
+                        icon: const Icon(Icons.remove,color: Colors.white,),
+                        style: ButtonStyle(
+                          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+                          backgroundColor: MaterialStatePropertyAll(AppColor.red),
+                        ),
+                      ),
+                      decoration: BoxDecoration(
+        
+                          borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: 30,),
+        
+                Padding(
+                  padding: const EdgeInsets.only(left: 5,bottom: 30,top: 10),
+                  child: Wrap(
+        
+                    direction: Axis.horizontal,
+                    alignment: WrapAlignment.start,
+                    spacing: 15,
+        
+                    children: List<Widget>.generate(
+                      4,
+                          (int index) {
+                        return ChoiceChip(
+                          labelPadding: EdgeInsets.symmetric(horizontal:   10,vertical: 4),
+                          //  pressElevation: 12,
+                          side: BorderSide(color: Colors.transparent,width: 0),
+                          elevation: selectedIndex == index ? 10 : 0,
+                          labelStyle: selectedIndex == index ? TextStyle( color: Colors.white): TextStyle( color: AppColor.textGrey),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15),side: BorderSide.none),
+                          selectedShadowColor: Colors.grey ,
+                          showCheckmark: false,
+                          shadowColor: AppColor.greyShadow,
+                          selectedColor: AppColor.red,
+                          backgroundColor: AppColor.lightGrey,
+                          label: Text('${choiceItemsList[index]}'),
+                          selected: selectedIndex == index,
+                          onSelected: (bool selected) {
+                            setState(() {
+                              onChipSelected(index);
+                              // forList = true;
+                              // value = (selected ? index : null)!;
+                              // print("index value is  $value");
+                            });
+                          },
+                        );
+                      },
+                    ).toList(),
                   ),
-                  itemBuilder: (context, index) {
-                    return
-                      Card(
-                        elevation: 8,
-                        shadowColor: Colors.grey.shade50,
-                        surfaceTintColor: Colors.white,
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 15,right: 10,),
-                          child: Column(
-                            children: [
-                              GestureDetector(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(image: AssetImage('${ filteredProductNames[index].productImage}'))
+                ),
+              
+                Expanded(
+                 child: GridView.builder(
+                  shrinkWrap: true,
+                    padding: EdgeInsets.only(bottom: 10),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 8.0,
+                      mainAxisSpacing: 8.0,
+        
+                      childAspectRatio: 2/3
+                    ),
+                    itemBuilder: (context, index) {
+                      return
+                        Card(
+                          elevation: 8,
+                          shadowColor: Colors.grey.shade50,
+                          surfaceTintColor: Colors.white,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15,right: 10,),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                GestureDetector(
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            image: DecorationImage(image: AssetImage('${ filteredProductNames[index].productImage}'))
+                                        ),
+                                        height: 150,
                                       ),
-                                      height: 140,
+        AllWidgets.customText(data: "${ filteredProductNames[index].productName}", fontWeight: FontWeight.bold ,  fontSize: 15),
+                                      AllWidgets.customText(data: "${ filteredProductNames[index].productDetail}",fontSize: 15),
+        
+                                      //
+                                      // Text("${ filteredProductNames[index].productName   }",style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
+                                      // Text('${ filteredProductNames[index].productDetail   }',style: TextStyle(fontFamily: 'Roboto'),),
+                                    ],
+                                  ),
+                                  onTap:  () {
+                                    print('navigate');
+                                    homeBloc.add(HomeScreenNavigateEvent(pri: filteredProductNames[index].productprice));
+                                    print("price is : ${filteredProductNames[index].productprice}");
+                                   // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(price: filteredProductNames[index].productprice,),));
+                                  },
+                                ),
+                                Spacer(flex: 1,),
+                                Row(
+        
+                                  children: [
+                                    Image(image: AssetImage('assets/images/star.png')),
+                                    SizedBox(width: 5,),
+                                    Expanded (
+                                      child:
+                                      AllWidgets.customText(data: "${ filteredProductNames[index].productRating}", fontWeight: FontWeight.bold ,fontSize: 15),
+        
+                                      //Text('${filteredProductNames[index].productRating }',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
+                                      flex: 1,
                                     ),
-AllWidgets.customText(data: "${ filteredProductNames[index].productName}", fontWeight: FontWeight.bold ,  fontSize: 15),
-                                    AllWidgets.customText(data: "${ filteredProductNames[index].productDetail}",fontSize: 15),
-
-                                    //
-                                    // Text("${ filteredProductNames[index].productName   }",style: TextStyle(fontWeight: FontWeight.bold,fontFamily: 'Roboto'),),
-                                    // Text('${ filteredProductNames[index].productDetail   }',style: TextStyle(fontFamily: 'Roboto'),),
+                                    IconButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          if(blankList.contains(filteredProductNames[index].productName.toString())){
+                                            blankList.remove(filteredProductNames[index].productName.toString());
+                                          }
+                                          else{
+                                            blankList.add(filteredProductNames[index].productName.toString());
+                                          }
+                                          print('temparray');
+                                          print(blankList);
+                                          print('hear $heartIs');
+                                        });
+                                      },
+                                      icon: !(blankList.contains(filteredProductNames[index].productName.toString())) ? SvgPicture.asset('assets/images/heart.svg') : Icon(CupertinoIcons.heart_fill,color: Colors.red),
+                                      //child:
+                                    ),
                                   ],
                                 ),
-                                onTap:  () {
-                                  print('navigate');
-                                  homeBloc.add(HomeScreenNavigateEvent(pri: filteredProductNames[index].productprice));
-                                  print("price is : ${filteredProductNames[index].productprice}");
-                                 // Navigator.push(context, MaterialPageRoute(builder: (context) => ProductScreen(price: filteredProductNames[index].productprice,),));
-                                },
-                              ),
-                              Row(
-
-                                children: [
-                                  Image(image: AssetImage('assets/images/star.png')),
-                                  SizedBox(width: 5,),
-                                  Expanded (
-                                    child:
-                                    AllWidgets.customText(data: "${ filteredProductNames[index].productRating}", fontWeight: FontWeight.bold ,fontSize: 15),
-
-                                    //Text('${filteredProductNames[index].productRating }',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15)),
-                                    flex: 1,
-                                  ),
-                                  IconButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        if(blankList.contains(filteredProductNames[index].productName.toString())){
-                                          blankList.remove(filteredProductNames[index].productName.toString());
-                                        }
-                                        else{
-                                          blankList.add(filteredProductNames[index].productName.toString());
-                                        }
-                                        print('temparray');
-                                        print(blankList);
-                                        print('hear $heartIs');
-                                      });
-                                    },
-                                    icon: !(blankList.contains(filteredProductNames[index].productName.toString())) ? SvgPicture.asset('assets/images/heart.svg') : Icon(CupertinoIcons.heart_fill,color: Colors.red),
-                                    //child:
-                                  ),
-                                ],
-                              ),
-                            ],
+                             Spacer(flex: 1,),
+                              ],
+                            ),
                           ),
-                        ),
-
-                      );
-                  },
-                  itemCount:  value == 0 ?  filteredProductNames.length : filteredProductNamesForCombo.length,
+        
+                        );
+                    },
+                    itemCount:  value == 0 ?  filteredProductNames.length : filteredProductNamesForCombo.length,
+                  ),
                 ),
-              ),
-            ],
-          );
-        }, listener: (BuildContext context, Object? state) {
-            print('listener state : $state');
-          if(state is HomeScreenNavigateToScreenState){
-            print('State price : ${state.price}');
-            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {return ProductScreen(price: state.price);}));
-          }
-        },
-
-         // child:
+              ],
+            );
+          }, listener: (BuildContext context, Object? state) {
+              print('listener state : $state');
+            if(state is HomeScreenNavigateToScreenState){
+              print('State price : ${state.price}');
+              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) {return ProductScreen(price: state.price);}));
+            }
+          },
+        
+           // child:
+          ),
         ),
       ),
     );

@@ -223,6 +223,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         ),
       ),
       body: PageView(
+        physics: NeverScrollableScrollPhysics(),
         controller: pageController,
         children: const <Widget>[
           Center(
@@ -241,7 +242,7 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
         ],
       ),
 
-    );
+   );
 
   }
 }
