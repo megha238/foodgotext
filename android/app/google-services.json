@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "188209909001",
+    "project_id": "loginwith-27ecc",
+    "storage_bucket": "loginwith-27ecc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188209909001:android:afbbe0fc71e933c71d57d8",
+        "android_client_info": {
+          "package_name": "com.example.loginwithgoogle"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXjuGs9_238_cO7LrGFHqv1E_Yy1pzUl0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
