@@ -7,6 +7,8 @@ class AppColor{
   static Color yellow = Colors.yellow.shade100;
   static Color greyShadow = Colors.grey.shade200;
   static Color BackGroundGrey = Colors.grey.shade500;
+  static Color greyShadowCard = Colors.grey.shade50;
+  static Color borderShadowYellow = Colors.yellow.shade50;
 
   static Color green = Colors.green;
   static Color lightGrey = Color(0xffF3F4F6);

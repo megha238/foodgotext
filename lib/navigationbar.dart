@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:loginwithgoogle/commentpage.dart';
 import 'package:loginwithgoogle/heartscreen.dart';
 import 'package:loginwithgoogle/homescreen.dart';
 import 'package:loginwithgoogle/login_screen.dart';
+import 'package:loginwithgoogle/userpage.dart';
 
 
 /*
@@ -135,6 +137,7 @@ class _BottomNavigationbarforItemsState extends State<BottomNavigationbarforItem
 //     );
   }
 }*/
+/*
 class MyHomePage extends StatefulWidget {
   const  MyHomePage({Key? key}) : super(key: key);
 
@@ -220,6 +223,7 @@ return Scaffold(
   ),
 
 );
+*/
 /*  Scaffold(
     appBar: AppBar(
       title: Text('Bottom Navigation Bar'),
@@ -278,7 +282,8 @@ return Scaffold(
         ),
       ),
     ),
-  );*/
+  );*//*
+
 
     // Scaffold(
     //   appBar: AppBar(
@@ -413,7 +418,8 @@ return Scaffold(
       ),
     );
 
-    /*return Scaffold(
+    */
+/*return Scaffold(
       appBar: AppBar(
         title: const Text('Bottom Navigation Bar'),
         centerTitle: true,
@@ -442,8 +448,10 @@ return Scaffold(
         child: const Icon(Icons.add),
       ),
 
-      */
-    /* bottomNavigationBar: BottomAppBar(
+      *//*
+
+    */
+/* bottomNavigationBar: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         notchMargin: 5.0,
         clipBehavior: Clip.antiAlias,
@@ -485,6 +493,229 @@ return Scaffold(
           ),
         ),
       ),*//*
-    );*/
+*/
+/*
+    );*//*
+
+  }
+}*/
+// class Navigation2 extends StatefulWidget {
+//   const Navigation2({super.key});
+//
+//   @override
+//   State<Navigation2> createState() => _Navigation2State();
+// }
+//
+// class _Navigation2State extends State<Navigation2> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return  Scaffold(
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+//       floatingActionButton: Container(
+//         margin: EdgeInsets.only(bottom: 10),
+//
+//         // decoration: BoxDecoration(
+//         //     boxShadow: [BoxShadow( color: Colors.black38,offset: Offset(0, 2),blurRadius: 3,)],
+//         // borderRadius: BorderRadius.circular(20)),
+//         child: FloatingActionButton(
+//           onPressed: () {},
+//           child: Icon(Icons.add),
+//           backgroundColor: Colors.blue,
+//           elevation: 10,
+//           shape:CircleBorder() ,
+//
+//
+//         ),
+//       ),
+//       bottomNavigationBar: BottomAppBar(color: Colors.red,
+// notchMargin: 6,
+//         shape: CircularNotchedRectangle(),
+//         shadowColor: Colors.green,
+//         child: Row(
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           mainAxisSize: MainAxisSize.max,
+//           children: [
+//             Expanded(
+//               child: InkWell(
+//                 child: Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                   Icon(Icons.home),
+//                     Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),)
+//                 ],),
+//                 onTap: () {
+//               Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+//                 },
+//               ),
+//             ),
+//             Expanded(
+//               child: InkWell(
+//                 child: Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                   Icon(Icons.email),
+//                   Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15)),
+//                 ],),
+//                 onTap: () {
+//                   Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage(),));
+//                 },
+//               ),
+//             ),
+//             Expanded(
+//               child: InkWell(
+//                 child: Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                   Icon(Icons.settings),
+//                   Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15))
+//                 ],),
+//                 onTap: () {
+//                   Navigator.push(context, MaterialPageRoute(builder: (context) => UserPage(),));
+//                 },
+//               ),
+//             ),
+//             Expanded(
+//               child: InkWell(
+//                 child: Column(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: [
+//                   Icon(Icons.heart_broken_outlined),
+//                   Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15))
+//                 ],),
+//                 onTap: () {
+//                   Navigator.push(context, MaterialPageRoute(builder: (context) => HeartScreen(),));
+//                 },
+//               ),
+//             ),
+//
+//
+//           ],
+//         ),
+//       )
+//     );
+//   }
+// }
+class BottomNavigationBarScreen extends StatefulWidget {
+  const BottomNavigationBarScreen({Key? key}) : super(key: key);
+
+  @override
+  State<BottomNavigationBarScreen> createState() => _BottomNavigationBarScreenState();
+}
+
+class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
+  final PageController pageController = PageController(initialPage: 0);
+  int selectedIndex = 0;
+
+  void onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+      pageController.jumpToPage(index);
+    });
+
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      resizeToAvoidBottomInset: false,
+      extendBody: false,
+      extendBodyBehindAppBar: false,
+      floatingActionButton: Visibility(
+        visible: MediaQuery.of(context).viewInsets.bottom == 0.0,
+        child: Container(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: FloatingActionButton(
+            isExtended: false,
+            elevation: 10,
+            backgroundColor: Color(0xffEF2A39),
+            shape: const CircleBorder(),
+            onPressed: () {},
+            child: const Icon(Icons.add, color: Colors.white, weight: 100),
+          ),
+        ),
+      ),
+    bottomNavigationBar: BottomAppBar(color: Colors.red,
+notchMargin: 6,
+        shape: CircularNotchedRectangle(),
+        shadowColor: Colors.green,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Expanded(
+              child: InkWell(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  Icon(Icons.home),
+                    selectedIndex == 0?  Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),) :Text(''),
+                ],),
+                onTap: () {
+                  onItemTapped(0);
+            //  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
+                },
+              ),
+            ),
+            Expanded(
+              child: InkWell(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  Icon(Icons.email),
+                    selectedIndex == 1?  Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),) :Text(''),
+                ],),
+                onTap: () {
+                  onItemTapped(1);
+
+                //  Navigator.push(context, MaterialPageRoute(builder: (context) => CommentPage(),));
+                },
+              ),
+            ),
+            Expanded(
+              child: InkWell(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  Icon(Icons.settings),
+                    selectedIndex == 2?  Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),) :Text(''),
+                ],),
+                onTap: () {
+                  onItemTapped(2);
+
+                 // Navigator.push(context, MaterialPageRoute(builder: (context) => UserPage(),));
+                },
+              ),
+            ),
+            Expanded(
+              child: InkWell(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                  Icon(Icons.heart_broken_outlined),
+                    selectedIndex == 3?  Text('.',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 15),) :Text(''),
+                ],),
+                onTap: () {
+                  onItemTapped(3);
+
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => HeartScreen(),));
+                },
+              ),
+            ),]
+    ),
+    ),
+      body: PageView(
+        physics: NeverScrollableScrollPhysics(),
+        controller: pageController,
+        children: const <Widget>[
+          Center(child: HomeScreen()),
+          Center(child: UserPage()),
+          Center(child: CommentPage()),
+          Center(child: HeartScreen()),
+        ],
+      ),
+    );
   }
 }

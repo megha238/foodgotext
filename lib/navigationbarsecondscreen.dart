@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:flutter/material.dart';
+import 'package:loginwithgoogle/app_color.dart';
 import 'package:loginwithgoogle/commentpage.dart';
 import 'package:loginwithgoogle/heartpage.dart';
 import 'package:loginwithgoogle/heartscreen.dart';
@@ -144,104 +145,103 @@ class _BottomNavigationbarforItemsState extends State<BottomNavigationbarforItem
 //     );
   }
 }*/
-class BottomNavigationBarScreen extends StatefulWidget {
-  const  BottomNavigationBarScreen({Key? key}) : super(key: key);
-  @override
-  State<BottomNavigationBarScreen> createState() => _BottomNavigationBarScreenState();
-}
-int selectedIndex = 0;
-class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
-  final PageController pageController = PageController(initialPage: 0);
-  late int _selectedIndex = 0;
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-
-        padding: const EdgeInsets.only(bottom: 10,),
-        child: FloatingActionButton(
-          elevation: 10,
-
-          backgroundColor: Color(0xffEF2A39),
-          shape: CircleBorder(),
-          onPressed: () {},
-          child:
-          // Image(image: AssetImage('assets/images/addNewImgpng.png'),)
-          // SvgPicture.asset('assets/images/addSvgImgnew.svg',height: 25,width: 25,)
-          const Icon(Icons.add,color: Colors.white,weight: 100,),
-          //  Image(image: AssetImage('assets/images/iconAdd.png',),fit: BoxFit.cover,width: 20,height: 20,)
-        ),
-      ),
-      bottomNavigationBar: Container(
-        height: 90,
-
-        child: BottomAppBar(
-
-          color: Color(0xffEF2A39),
-          // padding: EdgeInsets.all(20),
-          height: 80,
-          shape:  CircularNotchedRectangle(),
-          notchMargin: 10.0,
-          clipBehavior: Clip.antiAlias,
-          child: BottomNavigationBar(
-
-            showUnselectedLabels: true,
-            showSelectedLabels: true,
-            selectedItemColor: Colors.white,
-            type: BottomNavigationBarType.fixed,
-            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-            backgroundColor:  Color(0xffEF2A39),
-            elevation: 0,
-            currentIndex: _selectedIndex,
-            onTap: (index) {
-              setState(() {
-                _selectedIndex = index;
-                pageController.jumpToPage(index);
-              });
-            },
-            items: const[
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/home.png')),
-                label: '.',
-                // activeIcon: Text('.')
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/user.png')),
-                label: '.',
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/comment.png')),
-                label: '.',
-              ),
-              BottomNavigationBarItem(
-                icon: Image(image: AssetImage('assets/images/heart.png')),
-                label: '.',
-              ),
-            ],
-          ),
-        ),
-      ),
-      body: PageView(
-        controller: pageController,
-        children: const <Widget>[
-          Center(
-            child: HomeScreen(),
-          ),
-          Center(
-            child: UserPage(),
-          ),
-          Center(
-            child: CommentPage(),
-           // child: CommentPage(),
-          ),
-          Center(
-            child: HeartPage(),
-          ),
-        ],
-      ),
-
-    );
-
-  }
-}
+// class BottomNavigationBarScreen extends StatefulWidget {
+//   const  BottomNavigationBarScreen({Key? key}) : super(key: key);
+//   @override
+//   State<BottomNavigationBarScreen> createState() => _BottomNavigationBarScreenState();
+// }
+// int selectedIndex = 0;
+// class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
+//   final PageController pageController = PageController(initialPage: 0);
+//   late int _selectedIndex = 0;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+//       floatingActionButton: Container(
+//
+//         padding: const EdgeInsets.only(bottom: 10,),
+//         child: FloatingActionButton(
+//           elevation: 10,
+//
+//           backgroundColor: Color(0xffEF2A39),
+//           shape: CircleBorder(),
+//           onPressed: () {},
+//           child:
+//           // Image(image: AssetImage('assets/images/addNewImgpng.png'),)
+//           // SvgPicture.asset('assets/images/addSvgImgnew.svg',height: 25,width: 25,)
+//           const Icon(Icons.add,color: Colors.white,weight: 100,),
+//           //  Image(image: AssetImage('assets/images/iconAdd.png',),fit: BoxFit.cover,width: 20,height: 20,)
+//         ),
+//       ),
+//       bottomNavigationBar: Container(
+//         height: 90,
+//
+//         child: BottomAppBar(
+//
+//           color: Color(0xffEF2A39),
+//           // padding: EdgeInsets.all(20),
+//           height: 80,
+//           shape:  CircularNotchedRectangle(),
+//           notchMargin: 10.0,
+//           clipBehavior: Clip.antiAlias,
+//           child: BottomNavigationBar(
+//             showUnselectedLabels: true,
+//             showSelectedLabels: true,
+//             selectedItemColor: Colors.white,
+//             type: BottomNavigationBarType.fixed,
+//             selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+//             backgroundColor:  Color(0xffEF2A39),
+//             elevation: 0,
+//             currentIndex: _selectedIndex,
+//             onTap: (index) {
+//               setState(() {
+//                 _selectedIndex = index;
+//                 pageController.jumpToPage(index);
+//               });
+//             },
+//             items: const[
+//               BottomNavigationBarItem(
+//                 icon: Image(image: AssetImage('assets/images/home.png')),
+//                 label: '.',
+//                 // activeIcon: Text('.')
+//               ),
+//               BottomNavigationBarItem(
+//                 icon: Image(image: AssetImage('assets/images/user.png')),
+//                 label: '.',
+//               ),
+//               BottomNavigationBarItem(
+//                 icon: Image(image: AssetImage('assets/images/comment.png')),
+//                 label: '.',
+//               ),
+//               BottomNavigationBarItem(
+//                 icon: Image(image: AssetImage('assets/images/heart.png')),
+//                 label: '.',
+//               ),
+//             ],
+//           ),
+//         ),
+//       ),
+//       body: PageView(
+//         controller: pageController,
+//         children: const <Widget>[
+//           Center(
+//             child: HomeScreen(),
+//           ),
+//           Center(
+//             child: UserPage(),
+//           ),
+//           Center(
+//             child: CommentPage(),
+//            // child: CommentPage(),
+//           ),
+//           Center(
+//             child: HeartPage(),
+//           ),
+//         ],
+//       ),
+//
+//     );
+//
+//   }
+// }

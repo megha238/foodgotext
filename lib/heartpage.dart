@@ -16,6 +16,7 @@ class _HeartPageState extends State<HeartPage> {
       appBar: AppBar(
         title: AllWidgets.customText(data: 'Heart Screen'),
       ),
+
     );
   }
 }

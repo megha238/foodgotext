@@ -1,7 +1,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:loginwithgoogle/app_color.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import 'app_color.dart';
 
 abstract class AllWidgets {
 
@@ -14,11 +16,17 @@ abstract class AllWidgets {
     return Text(
       data,
       textAlign: textAlign,
+
+      maxLines: 2,
+      textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: true),
+      softWrap: true,
+
+      overflow: TextOverflow.fade,
       style: TextStyle(
-        fontSize: fontSize ?? 10,
-        fontWeight: fontWeight ?? FontWeight.normal,
-        fontFamily: fontFamily ?? 'Roboto',
-        color: color ?? AppColor.black
+          fontSize: fontSize ?? 10,
+          fontWeight: fontWeight ?? FontWeight.normal,
+          fontFamily: fontFamily ?? 'Roboto',
+          color: color ?? AppColor.black
       ),
     );
   }
@@ -27,35 +35,34 @@ abstract class AllWidgets {
     return  GridView.builder(
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1 ),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 1,mainAxisSpacing: 20 ,childAspectRatio: 4/3),
       itemBuilder: (context, index) {
         return Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          margin: EdgeInsets.only(top: 15,bottom: 15,left: 15,right: 10),
+          margin: EdgeInsets.only(top: 15,bottom: 15,right: 10),
           elevation: 8,
           color: AppColor.black,
           child: Column(
             children: [
               Container(
                   decoration: BoxDecoration(
-                      image: DecorationImage(image: AssetImage('${img[index]}')),
+                      image: DecorationImage(image: AssetImage('${img[index]}',),),
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15),topRight: Radius.circular(20), topLeft:  Radius.circular(20))
+                      borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15), bottomRight: Radius.circular(15),topRight: Radius.circular(20), topLeft:  Radius.circular(20))
                   ),
-                  width: double.infinity,height: 60
+                  width: double.infinity,
+                  height: 70.sp
               ),
               Padding(
-                padding:  EdgeInsets.only(top: 15),
+                padding:  const EdgeInsets.only(top: 13),
                 child: Row(
-                  children: [
-                    AllWidgets.customText(data:name[index],fontSize: 10,fontWeight: FontWeight.w700 ,color: AppColor.white,textAlign: TextAlign.center),
-                    // Text('${sideOption[index]}',style: TextStyle(fontFamily: 'Roboto',fontWeight: FontWeight.w700 ,fontSize: 10,color: AppColor.white),textAlign: TextAlign.center,),
-                    CircleAvatar(backgroundColor: AppColor.red,minRadius: 8,child: Icon(Icons.add,color: Colors.white,),)
-                  ],
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    AllWidgets.customText(data:name[index],fontSize: 10.sp,fontWeight: FontWeight.w700 ,color: AppColor.white,textAlign: TextAlign.center),
+                    CircleAvatar(backgroundColor: AppColor.red,minRadius: 9.sp,child: Icon(Icons.add,color: Colors.white,size: 12.sp,weight: 30,),)
+                  ],
                 ),
               ),
-
             ],
           ),
 
@@ -64,6 +71,27 @@ abstract class AllWidgets {
       },
       itemCount: name.length,
 
+    );
+  }
+  static Widget customButton({required IconData icon , required void Function()? onPressed}){
+    return  Container(
+      child: IconButton.filledTonal(
+        onPressed: onPressed,
+        icon:  Icon(icon,color: AppColor.white,),
+        style: ButtonStyle(
+          shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+          backgroundColor: MaterialStatePropertyAll(AppColor.red),
+        ),
+      ),
+      decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: AppColor.borderShadowYellow,offset: Offset(0, 3),
+              blurRadius: 6,
+            ),
+          ],
+          borderRadius: BorderRadius.all(Radius.circular(10))
+      ),
     );
   }
 
