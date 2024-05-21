@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+<<<<<<< HEAD
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loginwithgoogle/navigationbar.dart';
 import 'HomeScreenBloc/home_screen_bloc.dart';
 import 'ProductBloc/product_bloc.dart';
+=======
+import 'package:loginwithgoogle/HomeScreenBloc/home_screen_bloc.dart';
+import 'package:loginwithgoogle/ProductBloc/product_bloc.dart';
+>>>>>>> 1919a65906c7bba90b0cd2efc3a51f0f49f66075
 import 'navigationbarsecondscreen.dart';
 Future<void> main() async {
   await ScreenUtil.ensureScreenSize();
