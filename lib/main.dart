@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loginwithgoogle/ChatBloc/chat_bloc.dart';
 import 'package:loginwithgoogle/navigationbar.dart';
+import 'ChatBloc/customer_support2.dart';
 import 'HomeScreenBloc/home_screen_bloc.dart';
 import 'ProductBloc/product_bloc.dart';
 import 'package:loginwithgoogle/HomeScreenBloc/home_screen_bloc.dart';
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
     return  MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ChatBloc()),
-        BlocProvider(create: (context) => HomeScreenBloc()),
-        BlocProvider(create: (context) => ProductBloc()),
+       // BlocProvider(create: (context) => HomeScreenBloc()),
+      //  BlocProvider(create: (context) => ProductBloc()),
       ],
       child: ScreenUtilInit(
         designSize: Size(MediaQuery.of(context).size.width,MediaQuery.of(context).size.height),
