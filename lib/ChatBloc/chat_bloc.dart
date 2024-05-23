@@ -29,8 +29,12 @@ import 'customer_support2.dart';
 
 class ChatBloc extends Bloc<ChatEvent,ChatState>{
   List <ChetMessage>tags = [];
+<<<<<<< HEAD
   //List <String>defaultList = [];
   ScrollController controller = ScrollController();
+=======
+    List <String>defaultList = [];
+>>>>>>> d445e0dd41495c14aaeb70721b1429b7dc4c7c7a
 
   TextEditingController textController = TextEditingController();
   ChatBloc() : super(ChatInitialState()){
@@ -50,6 +54,13 @@ if( textController.text.isNotEmpty)
        emit(ChatAddState(chat: textController.text));
 
 
+<<<<<<< HEAD
+=======
+        tags.add(ChetMessage(message: event.leftMsg ?? '',isSender: false));
+        tags.add(ChetMessage(message: event.rightMsg ?? '',isSender: true));
+        return emit(ChatAddState(chat: textController.text));
+      }
+>>>>>>> d445e0dd41495c14aaeb70721b1429b7dc4c7c7a
     });
 
     // on((event, emit) {
