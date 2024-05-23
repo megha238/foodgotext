@@ -15,8 +15,9 @@ class CustomerSupportScreen extends StatefulWidget {
   @override
   State<CustomerSupportScreen> createState() => _CustomerSupportScreenState();
 }
-ChatBloc bloc = ChatBloc();
 class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
+  ChatBloc bloc = ChatBloc();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -40,10 +41,11 @@ class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
         child: BlocBuilder(builder: (BuildContext context, state) {
           return  Column(
             children: [
-              Expanded(
+              /*Expanded(
                 child: Container(
                   color: AppColor.white,
-                  child: (bloc.tags.isEmpty)? const Center(child: Text('No message'))
+                  child:
+                  (bloc.tags.isEmpty)? const Center(child: Text('No message'))
                       : ListView.builder(
                     itemCount: bloc.tags.length,
                     itemBuilder: (context, index) {
@@ -203,7 +205,7 @@ class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
                       }
                     },
                   ),
-                ),),
+                ),),*/
               Stack(
                 children: [
                   Container(
