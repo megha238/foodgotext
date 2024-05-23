@@ -13,7 +13,9 @@ class AppString{
   static String spicy = "Spicy";
   static String favouriteOrder = "Order your favourite food!";
   static String search = "Search";
-  //static String spicy = "Spicy";
+  static String defaultMsg = 'Hi, how can I help you?';
+
+//static String spicy = "Spicy";
 
 
 

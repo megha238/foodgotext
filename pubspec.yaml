@@ -36,6 +36,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   flutter_bloc: ^8.1.5
   flutter_screenutil: ^5.9.1
+  timelines: ^0.1.0
 
 
 dev_dependencies:

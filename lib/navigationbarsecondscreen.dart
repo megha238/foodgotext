@@ -145,7 +145,6 @@ class _BottomNavigationbarforItemsState extends State<BottomNavigationbarforItem
 //     );
   }
 }*/
-<<<<<<< HEAD
 // class BottomNavigationBarScreen extends StatefulWidget {
 //   const  BottomNavigationBarScreen({Key? key}) : super(key: key);
 //   @override
@@ -246,7 +245,6 @@ class _BottomNavigationbarforItemsState extends State<BottomNavigationbarforItem
 //
 //   }
 // }
-=======
 class BottomNavigationBarScreen extends StatefulWidget {
   const  BottomNavigationBarScreen({Key? key}) : super(key: key);
   @override
@@ -345,4 +343,3 @@ class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
 
   }
 }
->>>>>>> 1919a65906c7bba90b0cd2efc3a51f0f49f66075

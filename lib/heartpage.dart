@@ -17,6 +17,7 @@ class _HeartPageState extends State<HeartPage> {
         title: AllWidgets.customText(data: 'Heart Screen'),
       ),
 
+
     );
   }
 }

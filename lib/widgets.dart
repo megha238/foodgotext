@@ -16,15 +16,10 @@ abstract class AllWidgets {
     return Text(
       data,
       textAlign: textAlign,
-<<<<<<< HEAD
 
       maxLines: 2,
       textHeightBehavior: TextHeightBehavior(applyHeightToFirstAscent: true),
       softWrap: true,
-
-=======
-      maxLines: 1,
->>>>>>> 1919a65906c7bba90b0cd2efc3a51f0f49f66075
       overflow: TextOverflow.fade,
       style: TextStyle(
           fontSize: fontSize ?? 10,
