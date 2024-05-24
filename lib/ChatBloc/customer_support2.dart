@@ -101,8 +101,10 @@ class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
                                       ),
                                       onTap: () {
                                         Navigator.pop(context);
-                                       // setState(() {
-                                          bloc.tags.removeAt(index);
+                                        bloc.add(ChatDeleteEvent(index: index));
+
+                                        // setState(() {
+                                         // bloc.tags.removeAt(index);
                                        // });
 
                                       },
@@ -180,8 +182,9 @@ class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
                                         ),
                                         onTap: () {
                                           Navigator.pop(context);
+                                          bloc.add(ChatDeleteEvent(index: index,));
                                         //  setState(() {
-                                            bloc.tags.removeAt(index);
+                                           // bloc.tags.removeAt(index);
                                        //   });
                                         },
                                       ),
@@ -247,9 +250,7 @@ class _CustomerSupportScreenState extends State<CustomerSupportScreen> {
                               borderRadius: BorderRadius.all(Radius.circular(15.sp))
                           ),
                           child: IconButton.filledTonal(
-                            onPressed:  () => bloc.add(ChatSendBtnEvent()) ,
-
-
+                            onPressed:  () => bloc.add(ChatSendBtnEvent()),
                             //{
 
                             //  setState(() {

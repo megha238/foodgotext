@@ -9,3 +9,8 @@ String? chat;
 ChatAddState({required this.chat});
 
 }
+class chatDleteState extends ChatState{
+  int? index;
+  chatDleteState({required this.index});
+
+}

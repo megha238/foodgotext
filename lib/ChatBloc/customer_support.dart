@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 // import 'package:flutter/widgets.dart';
@@ -461,7 +461,8 @@
 //   String? message;
 //   ChetMessage({this.isSender , required this.message});
 // }
-=======
+// =======
+/*
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -746,3 +747,4 @@ class ChetMessage{
   ChetMessage({this.isSender = false, required this.message});
 }
 >>>>>>> d445e0dd41495c14aaeb70721b1429b7dc4c7c7a
+*/
